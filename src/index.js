@@ -36,6 +36,9 @@ function showCurrentTemp(response) {
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#wind");
   wind.innerHTML = response.data.wind.speed;
+  let iconElement = document.querySelector("#icon");
+
+  //iconElement.setAttribute("src", ``);
 }
 
 function updateLocation(event) {
@@ -46,6 +49,7 @@ function updateLocation(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   console.log(city);
   console.log(apiUrl);
+  console.log(response.data.main);
   axios.get(apiUrl).then(showCurrentTemp);
 }
 
